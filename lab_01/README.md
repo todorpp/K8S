@@ -26,8 +26,16 @@ PS C:\Users\tppar\Desktop\K8S\1st> minikube service first-app
 |-----------|-----------|-------------|-----------------------------|
 🎉  Opening service default/first-app in default browser...
 
-6 We can crash the application while visiting http://172.25.251.190:31744/error 
+6 In need of higher demand we can scale our pods with /this also provide load balancing between them/:
+kubectl scale deployment/first-app --replicas=3
+
+7 We can crash the application while visiting http://172.25.251.190:31744/error 
 after that if we revisit http://172.25.251.190:31744 the container shoul be restarted this way we show K8S desired state feature 
+also the app is avaliable in time of restard thanks to the replicated pods 
+
+8 If we need to update the source code in the container we rebuild the image push it and then use it again with 
+kubectl set image deployment/first-app kub-first-app1=todorparushev/kub-first-app1
+Note you need to restart the container 
 
 
 
