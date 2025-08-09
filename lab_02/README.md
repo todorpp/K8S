@@ -11,6 +11,7 @@ kubectl apply -f deployment.yaml
 When changes are needed, simply update the file and re-apply it.
 
 This option will perform health checks:
+
 livenessProbe:
             httpGet:
               path: /
