@@ -9,3 +9,11 @@ Activate the deployment by running:
 kubectl apply -f deployment.yaml
 
 When changes are needed, simply update the file and re-apply it.
+
+This option will perform health checks:
+livenessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            periodSeconds: 15
+            initialDelaySeconds: 5
