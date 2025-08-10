@@ -13,7 +13,12 @@ And also with the help with Postman we can use POST requests to store data, and 
 If we visit http://x.x.x.x/error we will crash the app and after that revisit it the data will be there thanks to the Persistent Volume
 
 The mount path we can see in the code which is story folder in the working directory 
-line 9     const filePath = path.join(__dirname, 'story', 'text.txt');
+line 9     const filePath = path.join(__dirname, process.env.STORY_FOLDER, 'text.txt');
+
+And the env value is specified in deployment.yaml:
+env:
+  - name: STORY_FOLDER
+    value:'story'
 
 So beneth the container we specify the path and the name:
 volumeMounts:
