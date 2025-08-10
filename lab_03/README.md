@@ -3,9 +3,9 @@ Simple application which allow us to store some data in the text.txt file. The g
 1 Build and push the image to repository 
 
 2 Create the objects with:
-kubectl apply -f host.pv.yaml 
-kubectl apply -f service.yaml -f deployment.yaml
-kubectl apply -f host.pvc.yaml
+kubectl apply -f host.pv.yaml ;
+kubectl apply -f service.yaml -f deployment.yaml ;
+kubectl apply -f host.pvc.yaml ;
 
 3 We can test if connection is working:
 minikube service story-service
