@@ -6,6 +6,7 @@ Simple application which allow us to store some data in the text.txt file. The g
 kubectl apply -f host.pv.yaml ;
 kubectl apply -f service.yaml -f deployment.yaml ;
 kubectl apply -f host.pvc.yaml ;
+kubectl apply -f enviorment.yaml ;
 
 3 We can test if connection is working:
 minikube service story-service
