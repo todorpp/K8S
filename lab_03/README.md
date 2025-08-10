@@ -16,7 +16,7 @@ If we visit http://x.x.x.x/error we will crash the app and after that revisit it
 The mount path we can see in the code which is story folder in the working directory 
 line 9     const filePath = path.join(__dirname, process.env.STORY_FOLDER, 'text.txt');
 
-So beneth the container we specify the path and the name:
+So beneath the container we specify the path and the name:
 volumeMounts:
   - mountPath: /app/story
     name: story-volume
