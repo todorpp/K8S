@@ -33,6 +33,8 @@ line 20  const response = await axios.get('http://auth/verify-token/' + token); 
 9 Create the tasks image , push it to repository , and then create K8S deployment:
 kubectl apply -f   tasks-deployment.yaml tasks-service.yaml
 
+10 As last step we will add our frontend so build the image and push it
+
 10 Use minikube service command to see the IP address of tasks-service , and in Postman use this address to POST and GET tasks
 http://x.x.x.x/tasks
 Note use "Authorization" for key, and "Bearer abc" for value 
