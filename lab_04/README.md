@@ -40,7 +40,7 @@ Note use "Authorization" for key, and "Bearer abc" for value
 11 Now is time for the front end we should adjust the source code to our needs , build the image and push it:
 In our case we will use something that is optional and that is reverse proxy and for that we should also add spicific line of code into nginx.conf:
 location /api/ {
-  proxy_pass http://tasks-service.default/;
+  proxy_pass http://tasks-service.default:8000/;
   }
 
 This code will make sure that requests to /api will be forwarded to our tasks-service
