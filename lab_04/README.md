@@ -30,14 +30,30 @@ value: "auth-service.default"
 line 20  const response = await axios.get('http://auth/verify-token/' + token); -------------->
   const response = await axios.get(`http://${process.env.AUTH_ADDRESS}/verify-token/` + token);
 
-9 Create the tasks image , push it to repository , and then create K8S deployment:
+9 Create the tasks image , push it to repository , and then create K8S deployment and service:
 kubectl apply -f   tasks-deployment.yaml tasks-service.yaml
 
 10 Use minikube service command to see the IP address of tasks-service , and in Postman use this address to POST and GET tasks
 http://x.x.x.x/tasks
 Note use "Authorization" for key, and "Bearer abc" for value 
 
-11 Now is time for the front end we should adjust the surce code to our needs , build the image and push it:
-line 20 const response = await axios.get(`http://${process.env.AUTH_ADDRESS}/verify-token/` + token);
+11 Now is time for the front end we should adjust the source code to our needs , build the image and push it:
+In our case we will use something that is optional and that is reverse proxy and for that we should also add spicific line of code into nginx.conf:
+location /api {
+  proxy_pass http://192.168.99.100:32140;
+  }
+
+This code will make sure that requests to /api will be forwarded to our tasks-service IP address
+
+Also for App.js will modify lines 11, 32:
+ fetch('http://192.168.99.100:32140/tasks', { ----------->
+ fetch('/api/tasks', {
+    
+  
+12 Create a deployment and the service for the frontend:
+kubectl apply -f frontend-service.yaml -f frontend-deployment.yaml
+
+13 Expose the service with and if everything works we should be able to open the URL and add tasks:
+minikube service frontend-service
 
 
