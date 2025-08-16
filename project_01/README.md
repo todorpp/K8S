@@ -31,6 +31,9 @@ aws eks --region eu-central-1 update-kubeconfig --name my_project
 and EC2ContainerRegistryReadOnly . Once the IAM role is created select it in the Node Group configuration . Next page add Instance type t3.micro . All other settings are optional
 for this lab the defaults is alright .
 
+10 Next we can create  our deployments and services
+kubectl apply -f auth.yaml -f users.yaml
+
 
 
 
