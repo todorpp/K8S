@@ -18,4 +18,18 @@ in my case i will use Mongodb Atlas, but this is just personal preference.
 
 7 All other options are optional 
 
+8 To continue we must install AWS cli localy and also have Access Key and Secret Key, so we can login localy to our AWS account. The login command is:
+aws configure
+
+From there we must update our local config file which is located in C:\Users\tppar\.kube folder this will make kubectl to talk with the EKS cluster instead the local cluster 
+Note that is recomended to make copy of the file so we still have config for local deployments :
+aws eks --region eu-central-1 update-kubeconfig --name my_project
+
+(from now on all commands will be executed to our EKS deployment)
+
+
+
+
+
+
 
