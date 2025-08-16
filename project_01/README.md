@@ -27,6 +27,10 @@ aws eks --region eu-central-1 update-kubeconfig --name my_project
 
 (from now on all commands will be executed to our EKS deployment)
 
+9 In the EKS cluster add a Node Group and create IAM role to set the permissions for the nodes. The permission policy which we will select is AmazonEKSWorkerNodePolicy, CNI,
+and EC2ContainerRegistryReadOnly . Once the IAM role is created select it in the Node Group configuration . Next page add Instance type t3.micro . All other settings are optional
+for this lab the defaults is alright .
+
 
 
 
