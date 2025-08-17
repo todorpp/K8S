@@ -34,6 +34,10 @@ for this lab the defaults is alright .
 10 Next we can create  our deployments and services
 kubectl apply -f auth.yaml -f users.yaml
 
+Note if this for some reason the nodes don't join the node group apply  aws-auth.yaml
+
+11 With Postman we can test our app sending POST request to Services URI/signup and the GET request to URI/login and we should get response with a token 
+
 
 
 
