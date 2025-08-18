@@ -36,7 +36,7 @@ kubectl apply -f auth.yaml -f users.yaml
 
 Note if this for some reason the nodes don't join the node group apply  aws-auth.yaml
 
-11 With Postman we can test our app sending POST request to Services URI/signup and the GET request to URI/login and we should get response with a token 
+11 With Postman we can test our app sending POST request to Services URI/signup and the GET request to URI/login and we should get response with a token . Also we can send GET request to URI/logs to see stored logs, and internaly in AWS we can check this in EFS Monitoring tab 
 
 
 
