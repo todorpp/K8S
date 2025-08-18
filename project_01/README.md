@@ -36,7 +36,18 @@ kubectl apply -f auth.yaml -f users.yaml
 
 Note if this for some reason the nodes don't join the node group apply  aws-auth.yaml
 
-11 With Postman we can test our app sending POST request to Services URI/signup and the GET request to URI/login and we should get response with a token . Also we can send GET request to URI/logs to see stored logs, and internaly in AWS we can check this in EFS Monitoring tab 
+11 With Postman we can test our app sending POST request to Services URL/signup and the GET request to URI/login and we should get response with a token . Also we can send GET request to URI/logs to see stored logs, and internaly in AWS we can check this in EFS Monitoring tab
+
+12 As final step build and push tasks-api image. After that apply the yaml file:
+kubectl apply -f tasks.yaml
+
+13 We can verify if this also works while grabbing the URI and in Postman sending GET request to tasks service URI/tasks.
+If this works you must receive "message": "Could not authenticate user." because the absence of token.
+To get such a token we need to send POST request to services URL/login with email and password (the user must be created with POST request at URL/signup)as key-value pair and token will be received.
+Now with the received token we can send GET request with Header Key -Authorization and Value -Bearer + tokenURI and we should get response with an empty list of tasks.
+Now to change that, and to make that not empty anymore, we can send a POST request to that URL/task with the same Header and body with key-value pair title and text.
+
+
 
 
 
